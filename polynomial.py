@@ -89,7 +89,9 @@ class Sub:
         # TODO: Implement string representation for subtraction
         # Should handle parentheses similar to Mul class
         # Hint: Look at how Mul class handles parentheses
-        pass
+        if isinstance(self.p2, Add):
+            return repr(self.p1) + " - ( " + repr(self.p2) + " )"
+        return repr(self.p1) + " - " + repr(self.p2)
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for subtraction
@@ -112,7 +114,9 @@ class Div:
         # TODO: Implement string representation for division
         # Should handle parentheses similar to Mul class
         # Hint: Look at how Mul class handles parentheses
-        pass
+        if isinstance(self.p1, Add) or isinstance(self.p2, Add):
+            return "( " + repr(self.p1) + " ) / ( " + repr(self.p2) + " )"
+        return repr(self.p1) + " / " + repr(self.p2)
 
     def evaluate(self, x_value):
         # TODO: Implement evaluation for division
